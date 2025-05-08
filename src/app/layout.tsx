@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const pixelify = Pixelify_Sans({
   subsets: ["latin"],
@@ -19,10 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${pixelify.variable} font-pixelify antialiased`}>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${pixelify.variable} font-pixelify antialiased`}>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
