@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const pixelify = Pixelify_Sans({
   subsets: ["latin"],
@@ -23,7 +24,14 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${pixelify.variable} font-pixelify antialiased`}>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
