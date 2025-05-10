@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <div>
       <SignedOut>
-        <SignInButton />
-        <SignUpButton />
+        <SignInButton mode="modal" />
+        <SignUpButton mode="modal" />
       </SignedOut>
       <SignedIn>
         <UserButton />
