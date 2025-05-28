@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${pixelify.variable} font-pixelify antialiased`}>
+        <body className={`${pixelify.className} antialiased`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
